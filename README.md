@@ -9,176 +9,274 @@
 
 ---
 
-## 1. Project Overview
+# 🌊 GeoRadar — AI-Powered Green Radar System
 
-GeoRadar is a software-simulated Ground Penetrating Radar (GPR) system designed to detect subsurface water reservoirs in drought-affected regions of North Africa and the Middle East. It introduces two core innovations over conventional GPR:
+<div align="center">
 
-- **Green Operation** — An entropy-based adaptive duty-cycling algorithm that activates the radar only when terrain conditions suggest subsurface anomalies, reducing power consumption by up to **70%** compared to always-on GPR systems.
-- **AI-Powered Detection** — A CNN-based classifier trained on dielectric constant signatures to distinguish water-bearing layers from dry soil and rock formations, targeting **>85% classification accuracy**.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge\&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-AI-orange?style=for-the-badge\&logo=tensorflow)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?style=for-the-badge\&logo=streamlit)
+![Plotly](https://img.shields.io/badge/Plotly-3D_Visualization-3f4f75?style=for-the-badge\&logo=plotly)
+![Status](https://img.shields.io/badge/Status-Prototype-success?style=for-the-badge)
 
-The full pipeline runs in simulation: FMCW signal generation → preprocessing → CNN classification → 3D interactive groundwater map.
+### Team Astrix · AESH 2026 · Sustainability Hackathon
 
----
+AI-powered underground water detection using Green Radar Systems, adaptive sensing, and 3D subsurface visualization.
 
-## 2. Problem Statement
-
-Over **2 billion people** live in water-stressed regions. Traditional water prospecting (drilling, chemical surveys) is destructive, expensive, and environmentally harmful. Conventional radar systems are also power-hungry — transmitting continuously regardless of environmental conditions, wasting energy and contributing to electromagnetic pollution.
-
-GeoRadar replaces destructive surveys with a **non-invasive, low-power radar simulation framework** that can be deployed computationally before any physical hardware is committed.
-
----
-
-## 3. System Architecture
-
-```
-Soil Input Data (NASA/ESA dielectric datasets)
-        │
-        ▼
-┌─────────────────────┐
-│  FMCW Signal Gen    │  Python — 200 MHz–1 GHz sweep, configurable soil layers
-│  (src/signal_gen.py)│
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  Preprocessing      │  SciPy — bandpass filter, noise removal, time-gain correction
-│  (src/preprocess.py)│
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  Duty-Cycle Gate    │  Entropy-based sensor — activates radar only on anomaly
-│  (src/duty_cycle.py)│
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  CNN Classifier     │  Keras/TensorFlow — classifies: water / dry soil / rock
-│  (src/cnn_model.py) │
-└────────┬────────────┘
-         │
-         ▼
-┌─────────────────────┐
-│  3D Visualization   │  Plotly + Streamlit — interactive groundwater map dashboard
-│  (src/dashboard.py) │
-└─────────────────────┘
-```
+</div>
 
 ---
 
-## 4. Repository Structure
+# 📌 Overview
 
+GeoRadar is an intelligent groundwater exploration platform that combines:
+
+* 🧠 AI-based subsurface classification
+* 📡 Adaptive Green Radar concepts
+* 🌍 3D underground mapping
+* 🖼️ Soil-image screening
+* ⚡ Low-power duty-cycle operation
+
+The system aims to support smarter and more sustainable groundwater surveying while reducing unnecessary radar power consumption.
+
+---
+
+# 🚨 Problem Statement
+
+Traditional groundwater exploration systems:
+
+* Consume high power continuously
+* Require expensive large-scale surveys
+* Lack intelligent adaptive scanning
+* Provide limited visualization for quick decision-making
+
+GeoRadar addresses these limitations using AI-assisted radar analysis and adaptive activation strategies.
+
+---
+
+# 💡 Proposed Solution
+
+GeoRadar combines AI, radar simulation, and visualization into one integrated platform.
+
+## Core Features
+
+✅ CNN subsurface classification
+✅ Water-bearing zone prediction
+✅ 3D underground visualization
+✅ Soil-image validation
+✅ Invalid-image rejection (logos/non-soil inputs)
+✅ Adaptive radar duty-cycle simulation
+✅ Interactive Streamlit dashboard
+
+---
+
+# 🧠 System Architecture
+
+```text
+          Soil Image / Radar Signal
+                       │
+                       ▼
+           ┌────────────────────┐
+           │ Signal Processing  │
+           │ & Image Validation │
+           └────────────────────┘
+                       │
+                       ▼
+           ┌────────────────────┐
+           │   CNN AI Model     │
+           │  Classification    │
+           └────────────────────┘
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+┌──────────────────┐      ┌──────────────────┐
+│ Water Prediction │      │ Power Optimization│
+└──────────────────┘      └──────────────────┘
+         │                           │
+         └─────────────┬─────────────┘
+                       ▼
+           ┌────────────────────┐
+           │ 3D Visualization   │
+           │ Interactive UI     │
+           └────────────────────┘
 ```
-georadar/
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── LICENSE
+
+---
+
+# 🛰️ AI Model
+
+GeoRadar uses a 1D CNN architecture for subsurface classification.
+
+### Classification Targets
+
+| Class | Description         |
+| ----- | ------------------- |
+| 0     | Dry Soil            |
+| 1     | Water-Bearing Layer |
+| 2     | Rock Formation      |
+
+### Model Pipeline
+
+```text
+Radar A-Scan
+     ↓
+Envelope Extraction
+     ↓
+1D CNN Processing
+     ↓
+Softmax Classification
+     ↓
+Confidence Estimation
+```
+
+---
+
+# 📊 Dashboard Features
+
+The interactive dashboard includes:
+
+* 🌍 3D underground classification map
+* 📈 CNN confidence heatmap
+* ⚡ Power-consumption comparison
+* 🖼️ Soil-image analysis panel
+* 📡 Adaptive radar activation simulation
+
+---
+
+# ⚡ Green Radar Concept
+
+GeoRadar reduces unnecessary radar operation using adaptive duty-cycle activation.
+
+| System           | Average Power |
+| ---------------- | ------------- |
+| Conventional GPR | 2.0 W         |
+| GeoRadar         | 0.62 W        |
+
+### Estimated Reduction
+
+# ≈ 70% Lower Power Consumption
+
+---
+
+# 🌱 UN Sustainable Development Goals
+
+| SDG    | Contribution                    |
+| ------ | ------------------------------- |
+| SDG 6  | Smart groundwater exploration   |
+| SDG 9  | AI & Green Radar innovation     |
+| SDG 12 | Efficient energy usage          |
+| SDG 13 | Lower environmental impact      |
+| SDG 17 | Interdisciplinary collaboration |
+
+---
+
+# 🧪 Technologies Used
+
+## Software
+
+* Python
+* TensorFlow
+* Streamlit
+* Plotly
+* NumPy
+* Pandas
+* Scikit-learn
+
+## AI / Visualization
+
+* CNN Classification
+* 3D Plotly Visualization
+* Interactive Dashboard UI
+
+---
+
+# 📂 Repository Structure
+
+```text
+GeoRadar/
+│
+├── README.md
+├── requirements.txt
 │
 ├── docs/
-│   ├── Astrix_GeoRadar_Phase1_ConceptDocument.pdf
-│   ├── Astrix_GeoRadar_Phase1_Presentation.pdf
-│   ├── architecture_diagram.png
-│   └── assumptions.md                 # All simulation assumptions documented
-│
 ├── src/
-│   ├── signal_gen.py                  # FMCW GPR waveform simulation
-│   ├── preprocess.py                  # Bandpass filter + noise removal pipeline
-│   ├── duty_cycle.py                  # Adaptive entropy-based duty cycling
-│   ├── cnn_model.py                   # CNN architecture + training script
-│   └── dashboard.py                   # Streamlit + Plotly 3D map dashboard
-│
 ├── simulation/
-│   ├── run_pipeline.py                # End-to-end pipeline runner
-│   ├── soil_profiles.json             # Configurable soil layer parameters
-│   └── notebooks/
-│       ├── 01_signal_generation.ipynb
-│       ├── 02_preprocessing.ipynb
-│       ├── 03_cnn_training.ipynb
-│       └── 04_power_comparison.ipynb  # GeoRadar vs conventional GPR
-│
-├── data/
-│   ├── dielectric_profiles/           # NASA/ESA-derived soil dielectric datasets
-│   └── synthetic_labels/              # Ground truth labels for CNN training
-│
 ├── results/
-│   ├── cnn_accuracy_report.txt        # Classification report — water/soil/rock
-│   ├── power_comparison.csv           # GeoRadar vs conventional power budget
-│   ├── power_comparison_chart.png
-│   └── sample_groundwater_map.html    # Interactive Plotly output (open in browser)
-│
-└── assets/
-    ├── demo_thumbnail.png
-    └── pipeline_flow.png
+├── assets/
+├── hardware/
+└── data/
 ```
 
 ---
 
-## 5. How to Run
+# ▶️ How to Run
 
-### Prerequisites
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the full pipeline
-
-```bash
-cd simulation
-python run_pipeline.py --soil_profile soil_profiles.json --freq_min 200e6 --freq_max 1e9
-```
-
-### Launch the dashboard
+## Run Dashboard
 
 ```bash
 streamlit run src/dashboard.py
 ```
 
-### Train the CNN classifier
+## Train CNN Model
 
 ```bash
-python src/cnn_model.py --train --epochs 50 --data_dir data/
+python src/cnn_model.py --train --epochs 50
 ```
 
-### Run individual notebooks
+---
 
-Open `simulation/notebooks/` in Jupyter. Run notebooks in order (01 → 04).
+# 📈 Prototype Results
+
+### Demonstrated Capabilities
+
+* AI-based groundwater prediction
+* Soil-image validation
+* 3D underground mapping
+* Radar power optimization simulation
+* CNN confidence visualization
 
 ---
 
-## 6. Key Results
+# ⚠️ Current Limitations
 
-| Metric | Value |
-|---|---|
-| CNN classification accuracy | >85% (water / dry soil / rock) |
-| Power reduction vs conventional GPR | ~70% |
-| Simulated subsurface penetration depth | Up to 10 m |
-| Operating frequency range | 200 MHz – 1 GHz |
-| Duty-cycle activation rate (arid terrain) | ~30% of scan time |
-
-See `results/` for the full classification report, power comparison CSV, and sample groundwater map.
+* Current radar data is partially synthetic
+* Real-world field deployment still in progress
+* Groundwater predictions require physical validation
 
 ---
 
-## 7. Assumptions and Limitations
+# 🚀 Future Work
 
-Full assumptions are documented in `docs/assumptions.md`. Key points:
-
-- Dielectric constant profiles are derived from open NASA/ESA datasets — not field-measured values.
-- CNN training data is synthetically generated from simulation; real-world validation would require field deployment.
-- Power consumption comparison is modeled, not measured on physical hardware.
-- Duty-cycle savings of 70% assume arid terrain with low ambient anomaly density; savings vary by environment.
-- The 3D groundwater map is a visualization of simulated outputs, not real survey data.
+* Real GPR hardware integration
+* Drone-assisted surveying
+* GIS & satellite-data fusion
+* Edge AI deployment
+* Real-world field validation
 
 ---
 
-## 8. AI Usage Disclosure
+# 👨‍💻 Team Astrix
 
-Portions of boilerplate code structure and documentation were drafted with AI assistance (GitHub Copilot, Claude). All generated outputs were reviewed, validated, and modified by team members. The CNN architecture, signal simulation logic, duty-cycle algorithm, and all numerical results were developed and verified by the team.
+AESH 2026 Sustainability Hackathon Project
+
+Focused on AI, sustainability, and intelligent Green Radar systems.
 
 ---
 
-## 9. Contact
+# 📜 AI Usage Disclosure
 
-**Team Astrix** · AESH Sustainability Hackathon 2026
-Challenge Track: Green Radar Systems
+AI tools were used to assist with:
+
+* Code generation
+* UI design
+* Documentation drafting
+* Visualization support
+
+All outputs were reviewed, modified, and validated by the team.
+validated, and modified by team members. The CNN architecture, signal simulation logic, duty-cycle algorithm, and all numerical results were developed and verified by the team.
