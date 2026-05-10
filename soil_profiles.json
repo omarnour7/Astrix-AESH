@@ -1,0 +1,44 @@
+{
+  "dry_sand": {
+    "eps_r": 3.0,
+    "sigma": 0.001,
+    "label": 0,
+    "description": "Arid desert sand — very low moisture, low conductivity"
+  },
+  "moist_soil": {
+    "eps_r": 10.0,
+    "sigma": 0.01,
+    "label": 0,
+    "description": "Semi-arid topsoil with some moisture"
+  },
+  "water_bearing": {
+    "eps_r": 25.0,
+    "sigma": 0.05,
+    "label": 1,
+    "description": "Water-saturated porous layer — primary detection target"
+  },
+  "granite_rock": {
+    "eps_r": 6.5,
+    "sigma": 0.0005,
+    "label": 2,
+    "description": "Dense granite bedrock — low attenuation, strong reflection"
+  },
+  "limestone": {
+    "eps_r": 7.5,
+    "sigma": 0.002,
+    "label": 2,
+    "description": "Karst limestone — common in North Africa subsurface"
+  },
+  "clay": {
+    "eps_r": 15.0,
+    "sigma": 0.1,
+    "label": 0,
+    "description": "Clay layer — high conductivity, strong signal attenuation"
+  },
+  "saturated_clay": {
+    "eps_r": 30.0,
+    "sigma": 0.2,
+    "label": 1,
+    "description": "Water-saturated clay — high dielectric contrast"
+  }
+}
