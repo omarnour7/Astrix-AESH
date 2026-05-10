@@ -1,12 +1,10 @@
-# GeoRadar — Underground Water Detection
-### Low-Power Green GPR for Drought Zone Sustainability
-**Team Astrix · AESH 2026 · Green Radar Systems Track**
 
+<div align="center">
 [![SDG 6](https://img.shields.io/badge/SDG%206-Clean%20Water-0a97d9)](https://sdgs.un.org/goals/goal6)
 [![SDG 9](https://img.shields.io/badge/SDG%209-Innovation-fd6925)](https://sdgs.un.org/goals/goal9)
 [![SDG 13](https://img.shields.io/badge/SDG%2013-Climate%20Action-3f7e44)](https://sdgs.un.org/goals/goal13)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+</div>
 ---
 
 # 🌊 GeoRadar — AI-Powered Green Radar System
