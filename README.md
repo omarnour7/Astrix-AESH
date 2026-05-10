@@ -22,9 +22,9 @@ The full pipeline runs in simulation: FMCW signal generation → preprocessing �
 
 ## 2. Problem Statement
 
-Over 2 billion people live in water-stressed regions. Traditional water prospecting (drilling, chemical surveys) is destructive, expensive, and environmentally harmful. Conventional radar systems are also power-hungry — transmitting continuously regardless of environmental conditions, wasting energy and contributing to electromagnetic pollution.
+Over **2 billion people** live in water-stressed regions. Traditional water prospecting (drilling, chemical surveys) is destructive, expensive, and environmentally harmful. Conventional radar systems are also power-hungry — transmitting continuously regardless of environmental conditions, wasting energy and contributing to electromagnetic pollution.
 
-GeoRadar replaces destructive surveys with a non-invasive, low-power radar simulation framework that can be deployed computationally before any physical hardware is committed.
+GeoRadar replaces destructive surveys with a **non-invasive, low-power radar simulation framework** that can be deployed computationally before any physical hardware is committed.
 
 ---
 
@@ -116,27 +116,32 @@ georadar/
 ## 5. How to Run
 
 ### Prerequisites
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### Run the full pipeline
+
 ```bash
 cd simulation
 python run_pipeline.py --soil_profile soil_profiles.json --freq_min 200e6 --freq_max 1e9
 ```
 
 ### Launch the dashboard
+
 ```bash
 streamlit run src/dashboard.py
 ```
 
 ### Train the CNN classifier
+
 ```bash
 python src/cnn_model.py --train --epochs 50 --data_dir data/
 ```
 
 ### Run individual notebooks
+
 Open `simulation/notebooks/` in Jupyter. Run notebooks in order (01 → 04).
 
 ---
@@ -151,7 +156,7 @@ Open `simulation/notebooks/` in Jupyter. Run notebooks in order (01 → 04).
 | Operating frequency range | 200 MHz – 1 GHz |
 | Duty-cycle activation rate (arid terrain) | ~30% of scan time |
 
-See `results/` for full classification report, power comparison CSV, and sample groundwater map.
+See `results/` for the full classification report, power comparison CSV, and sample groundwater map.
 
 ---
 
@@ -175,5 +180,5 @@ Portions of boilerplate code structure and documentation were drafted with AI as
 
 ## 9. Contact
 
-**Team Astrix** · AESH Sustainability Hackathon 2026  
-Challenge Track: Green Radar Systems  
+**Team Astrix** · AESH Sustainability Hackathon 2026
+Challenge Track: Green Radar Systems
